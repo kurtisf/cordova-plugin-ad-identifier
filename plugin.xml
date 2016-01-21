@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  id="cordova-plugin-device-ad-identifier" version="1.0.0">
+
+  <name>GoogleAppTracking</name>
+  <description>Cordova Plugin for Retrieving Device's Ad Identifier</description>
+  <license>Kurt Fickewirth</license>
+  <license>Apache 2.0</license>
+  <keywords>google,install,identifier,ad,tracking</keywords>
+
+  <engines>
+    <engine name="cordova" version=">=3.4.0" />
+  </engines>
+
+  <js-module src="www/DeviceAdIdentifier.js" name="DeviceAdIdentifierPlugin">
+    <clobbers target="DeviceAdIdentifierPlugin" />
+  </js-module>
+
+  <platform name="android">
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="DeviceAdIdentifierPlugin" >
+        <param name="android-package" value="com.DeviceAdIdentifier.DeviceAdIdentifierPlugin"/>
+      </feature>
+    </config-file>
+
+    <source-file src="src/android/DeviceAdIdentifierPlugin.java" target-dir="src/com/DeviceAdIdentifier" />
+  </platform>
+
+  <platform name="ios">
+    <config-file target="config.xml" parent="/*">
+      <feature name="DeviceAdIdentifierPlugin">
+        <param name="ios-package" value="CDVDeviceAdIdentifierPlugin" />
+      </feature>
+    </config-file>
+    <header-file src="src/ios/CDVDeviceAdIdentifier.h" />
+    <source-file src="src/ios/CDVDeviceAdIdentifier.m" />
+  </platform>
+</plugin>
+
