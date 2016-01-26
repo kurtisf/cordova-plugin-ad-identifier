@@ -14,11 +14,12 @@
 
         if ([[ASIdentifierManager sharedManager] isAdvertisingTrackingEnabled])
         {
-           IDFA = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
+            IDFA = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
         }
         else 
         {
-           optedOut = YES;
+            IDFA = @"";
+            optedOut = YES;
         }
 
         NSMutableDictionary *resultDictionary = [NSMutableDictionary dictionary];
